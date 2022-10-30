@@ -34,11 +34,14 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ThirstMa
 
         boolean affectedByCold = !BewitchmentAPI.isVampire(player, true) && !BewitchmentCompatUtils.isWerepyre(player) && !BewitchmentCompatUtils.isLich(player);
         envAccess.setColdEnvAffected(affectedByCold);
-        if(!affectedByCold && 0 > envAccess.getPlayerTemperature())
-            envAccess.setPlayerTemperature(0);
+        if(!affectedByCold && 5 > envAccess.getPlayerTemperature())
+            envAccess.setPlayerTemperature(5);
 
         boolean affectedByHot = !BewitchmentCompatUtils.isLich(player);
         ((PlayerEnvAccess) player).setColdEnvAffected(affectedByHot);
+
+        if(!affectedByHot && envAccess.getPlayerTemperature() > 5)
+            envAccess.setPlayerTemperature(5);
 
         if((BewitchmentCompatUtils.isWerepyre(player) && BSMTransformations.isWerepyre(player, false))
                 || BewitchmentAPI.isWerewolf(player, false))
