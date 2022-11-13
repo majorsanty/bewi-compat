@@ -20,7 +20,7 @@ public class BewitchmentCompatUtils implements ModInitializer {
 
     public static boolean requiresSustenance(PlayerEntity player)
     {
-        // todo Lich food config someday
+        // todo Lich food config someday idk
         return !isWerepyre(player) && !BewitchmentAPI.isVampire(player, true) && !isLich(player);
     }
 

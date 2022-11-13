@@ -65,7 +65,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ThirstMa
             } else
                 hunger.setFoodLevel(1);
         }
-
     }
 
 }

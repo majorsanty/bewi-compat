@@ -3,14 +3,14 @@
   "id": "bewi-compat",
   "version": "${version}",
 
-  "name": "Bewi Compat Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Bottled Bewitchment",
+  "description": "Compatibility mod focused around Bewitchment compat with some guis",
   "authors": [
-    "Me!"
+    "Santy"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://modrinth.com/mod/bewitchment-thirst-compatibility",
+    "sources": "https://github.com/majorsanty/bewi-compat"
   },
 
   "license": "MIT",
@@ -25,7 +25,11 @@
   "mixins": [
     "bewicompat.mixins.json"
   ],
-
+  "custom": {
+    "modmenu": {
+      "parent": "bewitchment"
+    }
+  },
   "depends": {
     "fabricloader": ">=0.14.9",
     "fabric-api": "*",
