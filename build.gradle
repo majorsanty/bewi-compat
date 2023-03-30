@@ -167,13 +167,13 @@ dependencies {
 	}
 
 	// EnvironmentZ
-	modCompileOnly modRuntimeOnly("curse.maven:EnvironmentZ-410224:4000454") {
+	modCompileOnly modRuntimeOnly("curse.maven:EnvironmentZ-410224:4442758") {
 		exclude group: "net.fabricmc.fabric-api"
 		exclude(group: "me.shedaniel.cloth")
 	}
 
 	// Dehydration
-	modCompileOnly modRuntimeOnly('com.github.Globox1997:Dehydration:1.19-SNAPSHOT') {
+	modCompileOnly modRuntimeOnly('curse.maven:Dehydration-410830:4216059') {
 		exclude(group: "net.fabricmc.fabric-api")
 		exclude(group: "me.shedaniel.cloth")
 		exclude(group: "io.github.prospector")

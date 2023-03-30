@@ -6,6 +6,8 @@ import moriyashiine.bewitchment.api.BewitchmentAPI;
 import net.bewicompat.BewitchmentCompatUtils;
 import net.dehydration.thirst.ThirstManager;
 import net.environmentz.access.PlayerEnvAccess;
+import net.environmentz.access.TemperatureManagerAccess;
+import net.environmentz.temperature.TemperatureManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.HungerManager;
@@ -30,15 +32,14 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ThirstMa
     {
         PlayerEntity player = ((PlayerEntity) (Object) this);
         thirstManager.setThirst(BewitchmentCompatUtils.requiresSustenance(player));
-        PlayerEnvAccess envAccess = ((PlayerEnvAccess) player);
+        TemperatureManager envAccess = ((TemperatureManagerAccess) player).getTemperatureManager();
 
         boolean affectedByCold = !BewitchmentAPI.isVampire(player, true) && !BewitchmentCompatUtils.isWerepyre(player) && !BewitchmentCompatUtils.isLich(player);
-        envAccess.setColdEnvAffected(affectedByCold);
+        boolean affectedByHot = !BewitchmentCompatUtils.isLich(player);
+
+        envAccess.setEnvironmentAffection(affectedByHot, affectedByCold);
         if(!affectedByCold && 5 > envAccess.getPlayerTemperature())
             envAccess.setPlayerTemperature(5);
-
-        boolean affectedByHot = !BewitchmentCompatUtils.isLich(player);
-        ((PlayerEnvAccess) player).setColdEnvAffected(affectedByHot);
 
         if(!affectedByHot && envAccess.getPlayerTemperature() > 5)
             envAccess.setPlayerTemperature(5);
