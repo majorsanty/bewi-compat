@@ -1,5 +1,7 @@
 # Bewitchment Compatibility Mod
 
+**Deprecated, feel free to port it without asking.**
+
 Compatibility mod between Bewitchment, Besmirchment, EnvironmentZ and Thrist.
 The idea is for the only required mod to be Bewitchment in a future.
 
